@@ -1,0 +1,119 @@
+{
+  "nav": {
+    "home": "Domov",
+    "races": "Tekme",
+    "projects": "Projekti",
+    "lightMode": "Svetli način",
+    "darkMode": "Temni način"
+  },
+
+  
+  "homePage": {
+    "tag": "Gorski tekač • Developer • Map Maker",
+    "title": "Gore so lajf.",
+    "subtitle": "Trail running, GPX tracing, mapping technologies and modern frontend development.",
+    "CTA": {
+      "races": "Moje tekme",
+      "projects": "Moji projekti"
+    },
+    "cards": {
+      "trailRunning": {
+        "title": "Gorski tek",
+        "description": "Trail tekme, gorske pustolovščine in vzdržljivostni izzivi."
+      },
+      "maths": {
+        "title": "Matematika in znanost",
+        "description": "Študij matematike in računalništva, učenje o tehnologijah GIS."
+      },
+      "development": {
+        "title": "Spletni projekti",
+        "description": "Vue aplikacije, matematična rešitve in implementacija zemljevidov."
+      }
+    },
+    "contacts": {
+      "tag": "Kontakt",
+      "title": "",
+      "description": "",
+      "email": "E-pošta: ",
+      "phone": "Telefon: ",
+      "strava": "Strava: "
+    }
+  },
+
+
+  "projectsPage": {
+    "header": {
+      "label": "Razvoj",
+      "title": "Projekti in delo"
+    },
+    "portfolio": {
+      "label": "Portfelj",
+      "title": "Izbrani projekti"
+    }
+  },
+
+  "racePage": {
+    "hero": {
+      "tag": "Tek",
+      "title": "Trail tek"
+    },
+    "upcoming": {
+      "tag": "2026",
+      "title": "Prihajajoče tekme",
+      "distance": "Razdalja",
+      "elevation": "Višinci"
+    },
+    "completed": {
+      "tag": "Zaključene dirke",
+      "title": "Rezultati preteklih tekem",
+      "distance": "Razdalja",
+      "elevation": "Višinci",
+      "time": "Čas"
+    },
+    "stats": {
+      "title": "Moja Statistika",
+      "utmb": "UTMB indeks: ",
+      "strava": " Strava kronc"
+    },
+    "pb": {
+      "title": "Osebni rekordi",
+      "marathon": "Maraton",
+      "half": "Polmaraton",
+      "tenk": "10 km"
+    },
+    "achievements": {
+      "title": "Najpomembnejši dosežki v trail teku",
+      "longestRace": "Najdaljša trail dirka: 76 km in 5.200 m višinske razlike",
+      "nationalTeam": "Večkratni član slovenske državne reprezentance v gorskem teku"
+    },
+    "races": {
+      "k24_26": "K24 Trail",
+      "jatr_26": "Julian Alps Trail Run",
+      "euChamp_26": "Evropsko prvenstvo v offroad teku",
+      "soca_26": "Soča Outdoor Festival",
+      "utvv_26": "Ultra Trail Vipavska Dolina",
+      "starigrad_26": "Tek na Stari Grad, Kamnik",
+      "farbanca_26": "Pol šihta na Farbanco",
+      "jatr_25": "Julian Alps Trail Run",
+      "verbier_25": "Trail Verbier - St. Bernard"
+    },
+    "alts": {
+      "k24_26": "K24 trail tek v gorah",
+      "jatr_26": "Julian Alps Trail Run gorski trail tek",
+      "soca_26": "Soča Outdoor Festival trail tekaški dogodek",
+      "euChamp_26": "Pastirske koče na Veliki planini",
+      "utvv_26": "Ultra Trail Vipavska Dolina tekma",
+      "starigrad_26": "Rezultati teka Starigrad Kamnik trail tek",
+      "farbanca_26": "Farbanca trail tek 2026 trening vzponi",
+      "jatr_25": "Golica koča in greben Golice med Julian Alps Trail Run 2025",
+      "verbier_25": "Proge Verbier 2025 UTMB World Series ultra trail tek"
+    },
+    "notes": {
+      "utvv_26": "Ni bil moj dan, se vidimo naslednje leto.",
+      "starigrad_26": "Ista proga kot evropsko prvenstvo. Uspelo mi je kvalificirati se v up-down format teka.",
+      "farbanca_26": "Tekma na čas, ne na razdaljo. Letos sem isto traso pretekel 9-krat, skupaj 24 km in 2700 m vzpona.",
+      "jatr_25": "Prvič sem tekel daljšo razdaljo na Julian Alps Trail Run.",
+      "verbier_25": "Moja prva ultra trail razdalja. Na UTMB seriji sem želel priti v cilj pred nočjo, kar mi je uspelo z 87. mestom."
+    }
+  }
+}

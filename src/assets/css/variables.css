@@ -1,0 +1,46 @@
+:root {
+  /* Base */
+  --color-background: #f1f1f1;
+  --color-surface: #f8f8f8;
+  --color-surface-light: #fdfdfd;
+  --color-surface-muted: #eeeeee;
+
+  /* Text */
+  --color-text-primary: #111111;
+  --color-text-secondary: #555555;
+  --color-text-muted: #777777;
+
+  /* Borders */
+  --color-border: #dddddd;
+
+  /* Main Palette */
+  --color-primary: #ddaa77;
+  --color-secondary: #dddd77;
+  --color-tertiary: #aadd77;
+
+  /* Hover States */
+  --color-primary-hover: #c99966;
+  --color-secondary-hover: #caca66;
+  --color-tertiary-hover: #99cc66;
+}
+
+.dark {
+  --color-background: #111111;
+  --color-surface: #1a1a1a;
+  --color-surface-light: #242424;
+  --color-surface-muted: #222222;
+
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #bbbbbb;
+  --color-text-muted: #888888;
+
+  --color-border: #333333;
+
+  --color-primary: #ddaa77;
+  --color-secondary: #dddd77;
+  --color-tertiary: #aadd77;
+
+  --color-primary-hover: #c99966;
+  --color-secondary-hover: #caca66;
+  --color-tertiary-hover: #99cc66;
+}
