@@ -9,7 +9,7 @@ const { t } = useI18n()
     <div class="hero-container">
       <!-- IMAGE -->
       <img
-        src="/images/fedaia01.jpeg"
+        src="/images/fedaia01.jpg"
         alt="trail running"
         class="hero-image"
       />

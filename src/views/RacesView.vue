@@ -41,7 +41,7 @@ function scrollRight() {
         <!-- HERO -->
         <div class="hero">
           <img
-            src="/images/verbier01.jpeg"
+            src="/images/verbier01.jpg"
             alt="trail running"
             class="hero-image"
           />
