@@ -107,7 +107,7 @@ const { t } = useI18n()
             </p>
 
             <p class="contact-value">
-              +386 51 209 965
+              +386 rad mam svojo punco, ne rabim telefona
             </p>
           </a>
         </div>

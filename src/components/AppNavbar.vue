@@ -12,7 +12,7 @@ const { t } = useI18n()
       <RouterLink to="/" class="navbar-logo">
         Nejc Uršič
       </RouterLink>
-
+      
       <div class="navbar-actions">
         <div class="navbar-links">
           <RouterLink to="/" class="navbar-link">
