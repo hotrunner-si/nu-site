@@ -1,18 +1,14 @@
 <template>
-
-  <div
-    v-if="isMenuOpen"
-    class="overlay"
-    @click="closeMenu"
-  />
+  <div v-if="isMenuOpen" class="overlay" @click="closeMenu" />
 
   <header class="navbar">
     
     <div class="logo">
-      <a :href="navBar.mainLink">
-        {{ t('brand.name') }}
-      </a>
+      <RouterLink :to="navBar.mainLink" class="navbar-logo">
+        {{t('brand.name')}}
+      </RouterLink>
     </div>
+    
 
     <button
       class="hamburger"
@@ -28,9 +24,9 @@
     <div class="menu" :class="{ open: isMenuOpen }">
       <ul class="nav-links">
         <li v-for="item in navBar.items" :key="item.nameKey">
-          <a :href="item.link" @click="closeMenu">
+          <RouterLink :to="item.link" @click="closeMenu">
             {{ t(item.nameKey) }}
-          </a>
+          </RouterLink>
         </li>
       </ul>
 
