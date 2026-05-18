@@ -1,4 +1,8 @@
 {
+  "brand": {
+    "name": "Nejc Uršič"
+  }, 
+  
   "nav": {
     "home": "Domov",
     "races": "Tekme",

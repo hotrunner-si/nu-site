@@ -1,6 +1,5 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
-
 const { t } = useI18n()
 </script>
 
@@ -61,7 +60,7 @@ const { t } = useI18n()
   max-width: 80rem; /* max-w-7xl */
   margin: 0 auto;
   overflow: hidden;
-  border-radius: 3rem; /* rounded-[3rem] */
+  border-radius: 1rem; /* rounded-[3rem] */
 }
 
 .hero-image {

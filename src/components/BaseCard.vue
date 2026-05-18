@@ -8,7 +8,7 @@
 .glass-card {
   padding: 2rem; /* p-8 */
   border: 1px solid var(--color-border);
-  border-radius: 2rem; /* rounded-[2rem] */
+  border-radius: 1rem; /* rounded-[2rem] */
   background-color: var(--color-surface);
   transition:
     transform 0.3s ease,

@@ -1,9 +1,8 @@
 <script setup>
-import HeroSection from '../components/HeroSection.vue'
-import BaseCard from '../components/BaseCard.vue'
+import HeroSection from '@/components/home_components/HeroSection.vue'
+import BaseCard from '@/components/BaseCard.vue'
 
 import { useI18n } from 'vue-i18n'
-
 const { t } = useI18n()
 </script>
 
@@ -107,7 +106,7 @@ const { t } = useI18n()
             </p>
 
             <p class="contact-value">
-              +386 rad mam svojo punco, ne rabim telefona
+              +386 00 000 000
             </p>
           </a>
         </div>
@@ -170,7 +169,7 @@ const { t } = useI18n()
 .contacts-card {
   padding: 3rem 2rem; /* py-12 px-8 */
   border: 1px solid var(--color-border);
-  border-radius: 1.5rem; /* rounded-3xl */
+  border-radius: 1rem; /* rounded-3xl */
   background-color: var(--color-surface);
   box-shadow:
     0 1px 2px rgb(0 0 0 / 0.05); /* shadow-sm */

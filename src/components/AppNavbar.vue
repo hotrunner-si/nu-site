@@ -1,154 +1,347 @@
-<script setup>
-import { useSettings } from '../composables/useSettings'
-import { useI18n } from 'vue-i18n'
-
-const { darkMode, language } = useSettings()
-const { t } = useI18n()
-</script>
-
 <template>
-  <nav class="navbar">
-    <div class="navbar-container">
-      <RouterLink to="/" class="navbar-logo">
-        Nejc Uršič
-      </RouterLink>
-      
-      <div class="navbar-actions">
-        <div class="navbar-links">
-          <RouterLink to="/" class="navbar-link">
-            {{ t('nav.home') }}
-          </RouterLink>
 
-          <RouterLink to="/races" class="navbar-link">
-            {{ t('nav.races') }}
-          </RouterLink>
+  <div
+    v-if="isMenuOpen"
+    class="overlay"
+    @click="closeMenu"
+  />
 
-          <RouterLink to="/projects" class="navbar-link">
-            {{ t('nav.projects') }}
-          </RouterLink>
-        </div>
+  <header class="navbar">
+    
+    <div class="logo">
+      <a :href="navBar.mainLink">
+        {{ t('brand.name') }}
+      </a>
+    </div>
 
-        <!-- LANGUAGE -->
+    <button
+      class="hamburger"
+      :class="{ open: isMenuOpen }"
+      @click="toggleMenu"
+      aria-label="Menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="menu" :class="{ open: isMenuOpen }">
+      <ul class="nav-links">
+        <li v-for="item in navBar.items" :key="item.nameKey">
+          <a :href="item.link" @click="closeMenu">
+            {{ t(item.nameKey) }}
+          </a>
+        </li>
+      </ul>
+
+      <div class="navbar-controls">
+        <!-- Language Switch -->
         <div class="language-switch">
           <button
-            @click="language = 'EN'"
-            :class="{ 'language-button-active': language === 'EN' }"
+            type="button"
             class="language-button"
+            :class="{ active: language === 'EN' }"
+            @click="language = 'EN'"
           >
             EN
           </button>
 
           <button
-            @click="language = 'SI'"
-            :class="{ 'language-button-active': language === 'SI' }"
+            type="button"
             class="language-button"
+            :class="{ active: language === 'SI' }"
+            @click="language = 'SI'"
           >
             SI
           </button>
         </div>
 
-        <!-- DARK MODE -->
+        <!-- Dark Mode -->
         <button
+          type="button"
+          class="theme-button"
           @click="darkMode = !darkMode"
-          class="theme-toggle"
         >
           {{ darkMode ? t('nav.lightMode') : t('nav.darkMode') }}
         </button>
       </div>
     </div>
-  </nav>
+  </header>
 </template>
 
-<style scoped>
-.navbar {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  border-bottom: 1px solid var(--color-border);
-  background-color: rgb(from var(--color-background) r g b / 0.8);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+
+<script setup>
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n' 
+import { useSettings } from '@/composables/useSettings' 
+import { navBar } from '@/data/content' 
+
+const { t } = useI18n() 
+const { language, darkMode } = useSettings() 
+const route = useRoute() 
+
+const isMenuOpen = ref(false) 
+
+function toggleMenu() { isMenuOpen.value = !isMenuOpen.value } 
+
+function closeMenu() { isMenuOpen.value = false }
+watch(() => route.fullPath, () => { closeMenu() })
+
+function handleKey(e) { if (e.key === 'Escape') closeMenu() }
+
+function lockScroll(lock) { document.body.style.overflow = lock ? '' : '' } 
+
+watch(isMenuOpen, (val) => { lockScroll(val) }) 
+
+onMounted(() => { window.addEventListener('keydown', handleKey) }) 
+
+onBeforeUnmount(() => { window.removeEventListener('keydown', handleKey) 
+
+lockScroll(false) }) 
+
+let scrollTimeout = null
+
+function handleUserScroll() {
+  if (!isMenuOpen.value) return
+
+  clearTimeout(scrollTimeout)
+
+  scrollTimeout = setTimeout(() => {
+    closeMenu()
+  }, 80)
 }
 
-.navbar-container {
-  max-width: 80rem; /* 1280px (Tailwind max-w-7xl) */
-  margin: 0 auto;
+onMounted(() => {
+  window.addEventListener('keydown', handleKey)
+  window.addEventListener('wheel', handleUserScroll, { passive: true })
+  window.addEventListener('touchmove', handleUserScroll, { passive: true })
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', handleKey)
+  window.removeEventListener('wheel', handleUserScroll)
+  window.removeEventListener('touchmove', handleUserScroll)
+
+  lockScroll(false)
+})
+</script>
+
+
+<style scoped>
+
+.hamburger {
+  display: none;
+  width: 28px;
+  height: 22px;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1200;
+}
+
+.hamburger span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: var(--color-text-primary);
+  left: 0;
+  transition: 0.3s ease;
+}
+
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 10px; }
+.hamburger span:nth-child(3) { top: 20px; }
+
+/* X animation */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+  top: 10px;
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  top: 10px;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.25rem 1.5rem; /* py-5 px-6 */
+  flex: 1;
+  margin-left: 2rem;
 }
 
-.navbar-logo {
-  font-size: 1.5rem; /* text-2xl */
-  font-weight: 900; /* font-black */
-  letter-spacing: -0.025em; /* tracking-tight */
-  color: var(--color-primary);
-  text-decoration: none;
-}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 1rem 2rem;
 
-.navbar-actions {
   display: flex;
   align-items: center;
-  gap: 2rem; /* gap-8 */
+  justify-content: space-between;
+  gap: 2rem;
+
+  background: var(--color-surface);
+  backdrop-filter: blur(10px);
 }
 
-.navbar-links {
-  display: flex;
-  gap: 1.5rem; /* gap-6 */
-  font-size: 0.875rem; /* text-sm */
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: var(--color-text-secondary);
-}
-
-.navbar-link {
-  color: inherit;
+.logo a,
+.logo {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
   text-decoration: none;
+}
+.logo a:hover {
+  color: var(--color-primary-hover);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+  justify-content: center;
+  color: var(--color-text-primary)
+}
+
+.nav-links a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-weight: 500;
   transition: color 0.2s ease;
 }
 
-.navbar-link:hover {
-  color: var(--color-primary);
+.nav-links a:hover {
+  color: var(--color-primary-hover);
 }
 
+/* Right-side controls */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Language switch */
 .language-switch {
   display: flex;
   overflow: hidden;
   border: 1px solid var(--color-border);
-  border-radius: 9999px; /* rounded-full */
+  border-radius: 999px;
 }
 
 .language-button {
-  padding: 0.25rem 0.75rem; /* py-1 px-3 */
-  font-size: 0.875rem; /* text-sm */
-  font-weight: 600; /* font-semibold */
+  padding: 0.4rem 0.9rem;
   border: none;
   background: transparent;
-  color: inherit;
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
   transition:
     background-color 0.2s ease,
     color 0.2s ease;
 }
 
-.language-button-active {
-  background-color: var(--color-primary);
+.language-button.active {
+  background: var(--color-primary);
   color: white;
 }
 
-.theme-toggle {
-  padding: 0.5rem 1rem; /* py-2 px-4 */
-  font-size: 0.875rem; /* text-sm */
+/* Dark mode button */
+.theme-button {
+  padding: 0.55rem 1rem;
   border: 1px solid var(--color-border);
-  border-radius: 9999px; /* rounded-full */
-  background-color: var(--color-surface);
-  color: inherit;
+  border-radius: 999px;
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: border-color 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background-color 0.2s ease;
 }
 
-.theme-toggle:hover {
+.theme-button:hover {
   border-color: var(--color-primary);
+}
+
+@media (max-width: 1024px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    height: 100vh;
+    width: 280px;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    padding: 4rem 1.5rem 2rem;
+
+    background: var(--color-background);
+    opacity: 0.95;
+    box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 1100;
+  }
+
+  .menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .navbar-controls {
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 2rem; /* remove extra push */
+    width: 100%;
+    align-items: center;
+  }
+
+  /* optional: visually group controls tighter */
+  .language-switch {
+    transform: scale(0.95);
+  }
+
+  .theme-button {
+    width: 100%;
+    max-width: 180px;
+  }
 }
 </style>
