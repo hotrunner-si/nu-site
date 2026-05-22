@@ -188,6 +188,10 @@ div::-webkit-scrollbar {
   font-size: 1.5rem;
   font-weight: 900;
   text-decoration: none;
+  transition: color 0.2s ease
+}
+.upcoming-name:hover {
+  color: var(--color-secondary-hover)
 }
 
 .upcoming-stats {

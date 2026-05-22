@@ -146,6 +146,10 @@ import { completedRaces } from '@/data/races'
   font-size: 2rem;
   font-weight: 900;
   text-decoration: none;
+  transition: color 0.2s ease
+}
+.completed-name:hover {
+  color: var(--color-tertiary-hover)
 }
 
 .completed-stats {
