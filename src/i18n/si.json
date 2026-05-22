@@ -1,8 +1,8 @@
 {
   "brand": {
     "name": "Nejc Uršič"
-  }, 
-  
+  },
+
   "nav": {
     "home": "Domov",
     "races": "Tekme",
@@ -11,7 +11,6 @@
     "darkMode": "Temni način"
   },
 
-  
   "homePage": {
     "tag": "Gorski tekač • Developer • Map Maker",
     "title": "Gore so lajf.",
@@ -36,14 +35,13 @@
     },
     "contacts": {
       "tag": "Kontakt",
-      "title": "",
-      "description": "",
+      "title": "Stopite v stik",
+      "description": "Vesel bom vašega sporočila!",
       "email": "E-pošta: ",
       "phone": "Telefon: ",
       "strava": "Strava: "
     }
   },
-
 
   "projectsPage": {
     "header": {
@@ -53,6 +51,51 @@
     "portfolio": {
       "label": "Portfelj",
       "title": "Izbrani projekti"
+    },
+    "whatido": {
+      "tag": "Delo",
+      "title": "Kaj delam"
+    },
+    "work": {
+      "websites": {
+        "title": "Izdelava spletnih strani",
+        "description": "Izdelujem osebne spletne strani, strani apartmajev. V Vue.js"
+      },
+      "mapsites": {
+        "title": "Zemljevidi in GPX",
+        "description": "Razvijam aplikacije za vizualizacijo GPX in manipulacijo zemljevidov"
+      },
+      "coaching": {
+        "title": "Trenerstvo",
+        "description": "Osebni plani treningov za trail tek za začetnike in izkušene tekače"
+      }
+    },
+    "done": {
+      "mamut": {
+        "title": "Apartma Mamut Kamnik",
+        "description": "opis v pripravi"
+      },
+      "myPage": {
+        "title": "Ta spletna stran",
+        "description": "moja osebna stran"
+      },
+      "mapPoster": {
+        "title": "Zemljevidi",
+        "description": "poglej ta zemljevid"
+      },
+      "garden": {
+        "title": "Vrtni pogled",
+        "description": "ta je vrtna aplikacija"
+      }
+    },
+    "alts": {
+      "websites": "",
+      "mapsites": "",
+      "coaching": "",
+      "mamut": "",
+      "myPage": "",
+      "mapPoster": "grajski izziv",
+      "garden": ""
     }
   },
 

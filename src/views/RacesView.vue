@@ -26,9 +26,9 @@ import RacesPast from '@/components/race_components/RacesPast.vue'
 
 <style scoped>
 .races-page {
-  max-width: 80rem;
+  max-width: 90rem;
   margin: 0 auto;
-  padding: 2.5rem 1.5rem;
+  padding: 5rem 1.5rem 0;
 }
 
 .top-grid {
@@ -43,7 +43,7 @@ import RacesPast from '@/components/race_components/RacesPast.vue'
   min-width: 0;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
   .top-grid {
     grid-template-columns: 2fr 1fr;
   }

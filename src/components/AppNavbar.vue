@@ -186,7 +186,8 @@ onBeforeUnmount(() => {
   left: 0;
   z-index: 1000;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 0 2rem;
+  height: var(--navbar-height);
 
   display: flex;
   align-items: center;
@@ -282,7 +283,7 @@ onBeforeUnmount(() => {
   border-color: var(--color-primary);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 752px) {
   .hamburger {
     display: block;
   }

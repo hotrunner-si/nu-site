@@ -5,7 +5,6 @@
           {{ t('racePage.stats.title') }}
         </p>
 
-        <!-- LINKS -->
         <div class="stats-links">
           <a
             :href="statsLinks.utmb.link"
@@ -26,7 +25,6 @@
           </a>
         </div>
 
-        <!-- PB -->
         <div class="block-section">
           <h3 class="block-title">
             {{ t('racePage.pb.title') }}
@@ -49,7 +47,6 @@
           </div>
         </div>
 
-        <!-- ACHIEVEMENTS -->
         <div class="block-section">
           <h3 class="block-title">
             {{ t('racePage.achievements.title') }}
@@ -92,7 +89,6 @@ import { statsLinks, personalBests, achievements } from '@/data/races'
   color: var(--color-primary);
 }
 
-/* BUTTONS */
 .stats-links {
   display: flex;
   flex-direction: column;
@@ -112,7 +108,6 @@ import { statsLinks, personalBests, achievements } from '@/data/races'
   background: var(--color-primary-hover);
 }
 
-/* BLOCKS */
 .block-section {
   margin-top: 3.5rem;
 }

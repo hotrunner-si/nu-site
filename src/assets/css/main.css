@@ -9,6 +9,10 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  padding-top: var(--navbar-height);
+}
+
 body {
   margin: 0;
 
@@ -29,7 +33,6 @@ img {
   display: block;
   max-width: 100%;
 }
-
 
 .section-card {
   border: 1px solid var(--color-border);

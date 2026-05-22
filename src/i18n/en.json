@@ -45,13 +45,54 @@
   },
 
   "projectsPage": {
-    "header": {
-      "label": "Development",
-      "title": "Projects & Work"
+    "whatido": {
+      "tag": "Work",
+      "title": "What I do"
     },
     "portfolio": {
-      "label": "Portfolio",
-      "title": "Selected Projects"
+      "tag": "Projects",
+      "title": "Take a look at my portfolio"
+    },
+    "work": {
+      "websites": {
+        "title": "Website development",
+        "description": "I make personal websites, apartment websites all in vue.js"
+      },
+      "mapsites": {
+        "title": "Maps and Gpx",
+        "description": "Developing apps for gpx visualisation and map manipulation"
+      },
+      "coaching": {
+        "title": "Training and coaching",
+        "description": "Personal trail running plans for new and experienced runners"
+      }
+    },
+    "done": {
+      "mamut": {
+        "title": "Apartma Mamut Kamnik",
+        "description": "ppp"
+      },
+      "myPage": {
+        "title": "This website",
+        "description": "pers pag"
+      },
+      "mapPoster": {
+        "title": "maps",
+        "description": "look at this map"
+      },
+      "garden": {
+        "title": "Garden view",
+        "description": "this is a garden app"
+      }
+    },
+    "alts": {
+      "websites": "",
+      "mapsites": "",
+      "coaching": "",
+      "mamut": "",
+      "myPage": "",
+      "mapPoster": "grajski izziv",
+      "garden": ""
     }
   },
   

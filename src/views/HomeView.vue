@@ -116,22 +116,21 @@ const { t } = useI18n()
 </template>
 
 <style scoped>
-/* CARDS SECTION */
 .cards-section {
-  max-width: 80rem; /* max-w-7xl */
+  max-width: 80rem; 
   margin: 0 auto;
-  padding: 6rem 1.5rem; /* py-24 px-6 */
+  padding: 6rem 1.5rem; 
 }
 
 .cards-grid {
   display: grid;
-  gap: 1.5rem; /* gap-6 */
+  gap: 1.5rem; 
 }
 
 .card-accent {
-  width: 5rem; /* w-20 */
-  height: 0.75rem; /* h-3 */
-  margin-bottom: 1.25rem; /* mb-5 */
+  width: 5rem;
+  height: 0.75rem; 
+  margin-bottom: 1.25rem; 
   border-radius: 9999px;
 }
 
@@ -149,40 +148,39 @@ const { t } = useI18n()
 
 .card-title {
   margin: 0;
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 900; /* font-black */
+  font-size: 1.875rem; 
+  font-weight: 900; 
 }
 
 .card-description {
-  margin-top: 1rem; /* mt-4 */
-  line-height: 2rem; /* leading-8 */
+  margin-top: 1rem; 
+  line-height: 2rem; 
   color: var(--color-text-secondary);
 }
 
-/* CONTACTS SECTION */
 .contacts-section {
-  max-width: 80rem; /* max-w-7xl */
+  max-width: 80rem; 
   margin: 0 auto;
-  padding: 0 1.5rem 6rem; /* px-6 pb-24 */
+  padding: 0 1.5rem 6rem;
 }
 
 .contacts-card {
-  padding: 3rem 2rem; /* py-12 px-8 */
+  padding: 3rem 2rem; 
   border: 1px solid var(--color-border);
-  border-radius: 1rem; /* rounded-3xl */
+  border-radius: 1rem; 
   background-color: var(--color-surface);
   box-shadow:
-    0 1px 2px rgb(0 0 0 / 0.05); /* shadow-sm */
+    0 1px 2px rgb(0 0 0 / 0.05); 
 }
 
 .contacts-header {
-  max-width: 48rem; /* max-w-3xl */
+  max-width: 48rem; 
 }
 
 .contacts-tag {
   margin: 0;
-  font-size: 0.75rem; /* text-xs */
-  font-weight: 600; /* font-semibold */
+  font-size: 0.75rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--color-primary);
@@ -190,31 +188,33 @@ const { t } = useI18n()
 
 .contacts-title {
   margin: 0.75rem 0 0;
-  font-size: 2.25rem; /* text-4xl */
-  font-weight: 900; /* font-black */
-  letter-spacing: -0.025em; /* tracking-tight */
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: -0.025em; 
 }
 
 .contacts-description {
-  margin-top: 1rem; /* mt-4 */
-  max-width: 42rem; /* max-w-2xl */
-  line-height: 2rem; /* leading-8 */
+  margin-top: 1rem;
+  max-width: 42rem;
+  line-height: 2rem;
   color: var(--color-text-secondary);
 }
 
 .contacts-grid {
   display: grid;
-  gap: 1rem; /* gap-4 */
-  margin-top: 2.5rem; /* mt-10 */
+  gap: 1rem; 
+  margin-top: 2.5rem;
+  grid-template-columns: 1fr;
 }
 
 .contact-item {
   display: block;
-  padding: 1.25rem 1.5rem; /* py-5 px-6 */
+  padding: 1.25rem 1.5rem; 
   border: 1px solid var(--color-border);
-  border-radius: 1rem; /* rounded-2xl */
+  border-radius: 1rem;
   background-color: var(--color-surface-light);
   text-decoration: none;
+  word-break: break-word;
   color: inherit;
   transition:
     border-color 0.2s ease,
@@ -239,22 +239,27 @@ const { t } = useI18n()
 
 .contact-label {
   margin: 0;
-  font-size: 0.75rem; /* text-xs */
-  font-weight: 600; /* font-semibold */
+  font-size: 0.75rem; 
+  font-weight: 600; 
   text-transform: uppercase;
   letter-spacing: 0.2em;
   color: var(--color-text-secondary);
 }
 
 .contact-value {
-  margin: 0.5rem 0 0; /* mt-2 */
-  font-weight: 600; /* font-semibold */
+  margin: 0.5rem 0 0;
+  font-weight: 600;
 }
 
-/* RESPONSIVE */
 @media (min-width: 640px) {
   .contacts-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .contacts-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
