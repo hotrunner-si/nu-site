@@ -13,11 +13,11 @@
 
         <div class="slider-controls">
             <button @click="scrollLeft" class="slider-btn">
-            ←
+            <
             </button>
 
             <button @click="scrollRight" class="slider-btn">
-            →
+            >
             </button>
         </div>
         </div>

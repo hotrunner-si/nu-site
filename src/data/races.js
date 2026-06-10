@@ -40,15 +40,6 @@ export const achievements = [
 
 export const upcomingRaces = [
   {
-    nameKey: 'racePage.races.euChamp_26',
-    date: '7. June 2026',
-    distance: '13 km',
-    elevation: '850 m',
-    image: '/images/velka01.jpg',
-    imageAlt: 'racePage.alts.euChamp_26',
-    link: 'https://www.offroadrunning2026.si/',
-  },
-  {
     nameKey: 'racePage.races.soca_26',
     date: '26. June 2026',
     distance: '25 km + Vertikal',
@@ -78,6 +69,17 @@ export const upcomingRaces = [
 ]
 
 export const completedRaces = [
+  {
+    nameKey: 'racePage.races.euChamp_26',
+    year: '7. June 2026',
+    distance: '13 km',
+    elevation: '870 m',
+    time: '1:15:40',
+    image: '/images/velka01.jpg',
+    imageAlt: 'racePage.alts.euChamp_26',
+    link: 'https://www.strava.com/activities/18825099708',
+    noteKey: 'racePage.notes.euChamp_26',
+  },
   {
     nameKey: 'racePage.races.utvv_26',
     year: '25. april 2026',

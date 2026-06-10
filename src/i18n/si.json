@@ -73,15 +73,15 @@
     "done": {
       "mamut": {
         "title": "Apartma Mamut Kamnik",
-        "description": "opis v pripravi"
+        "description": "Spletna vizitka za apartma v Kamniku."
       },
       "myPage": {
         "title": "Ta spletna stran",
-        "description": "moja osebna stran"
+        "description": "Moja osebna stran."
       },
-      "mapPoster": {
-        "title": "Zemljevidi",
-        "description": "poglej ta zemljevid"
+      "tpok": {
+        "title": "Tekaški pokal občine Kamnik",
+        "description": "Informativna spletna stran za lokalni tekaški pokal."
       },
       "garden": {
         "title": "Vrtni pogled",
@@ -94,7 +94,7 @@
       "coaching": "",
       "mamut": "",
       "myPage": "",
-      "mapPoster": "grajski izziv",
+      "tpok": "Tekaški pokal občine Kamnik",
       "garden": ""
     }
   },
@@ -156,6 +156,7 @@
       "verbier_25": "Proge Verbier 2025 UTMB World Series ultra trail tek"
     },
     "notes": {
+      "euChamp_26": "Vesel sem, da sem bil del tako dobro organiziranega dogodka. Tekma v domačem kraju je bila super. Spusti so bili blatni in tehnični. Hvala vsem gledalcem in prostovoljcem za neverjetno vzdušje. Končal sem na 65. mestu.",
       "utvv_26": "Ni bil moj dan, se vidimo naslednje leto.",
       "starigrad_26": "Ista proga kot evropsko prvenstvo. Uspelo mi je kvalificirati se v up-down format teka.",
       "farbanca_26": "Tekma na čas, ne na razdaljo. Letos sem isto traso pretekel 9-krat, skupaj 24 km in 2700 m vzpona.",

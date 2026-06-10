@@ -44,9 +44,10 @@ export const projects = [
   },
 
   {
-    title: 'projectsPage.done.mapPoster.title',
-    description: 'projectsPage.done.mapPoster.description',
-    image: '/images/mapsite-img.png',
-    imageAlt: 'projectsPage.alts.mapPoster'
+    title: 'projectsPage.done.tpok.title',
+    description: 'projectsPage.done.tpok.description',
+    image: '/images/tpok-site.png',
+    imageAlt: 'projectsPage.alts.tpok',
+    link: 'https://pokal-kamnik.netlify.app'
   },
 ]
