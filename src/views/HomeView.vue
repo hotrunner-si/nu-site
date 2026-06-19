@@ -98,15 +98,15 @@ const { t } = useI18n()
           </a>
 
           <a
-            href="tel:+38651209965"
+            href="https://gorski-blog.netlify.app"
             class="contact-item contact-item-tertiary"
           >
             <p class="contact-label">
-              {{ t('homePage.contacts.phone') }}
+              {{ t('homePage.contacts.blog') }}
             </p>
 
             <p class="contact-value">
-              +386 00 000 000
+              Moj gorski blog
             </p>
           </a>
         </div>

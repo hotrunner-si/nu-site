@@ -40,7 +40,8 @@
       "description": "Feel free to reach out!",
       "email": "Email: ",
       "phone": "Phone: ",
-      "strava": "Strava: "
+      "strava": "Strava: ",
+      "blog": "Blog"
     }
   },
 
@@ -50,8 +51,8 @@
       "title": "What I do"
     },
     "portfolio": {
-      "tag": "Projects",
-      "title": "Take a look at my portfolio"
+      "tag": "Portfolio",
+      "title": "My past projects"
     },
     "work": {
       "websites": {
@@ -68,6 +69,11 @@
       }
     },
     "done": {
+      "blog": {
+        "title":"My blog page",
+        "description": "Work on more flexible content pages."
+      
+      },
       "mamut": {
         "title": "Apartma Mamut Kamnik",
         "description": "Landing page for an apartment in Kamnik, Slovenia."
@@ -83,9 +89,6 @@
       "garden": {
         "title": "Garden view",
         "description": "this is a garden app"
-      },
-      "blog": {
-
       },
       "alpineAdventuresClub": {
 

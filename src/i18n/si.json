@@ -39,7 +39,8 @@
       "description": "Vesel bom vašega sporočila!",
       "email": "E-pošta: ",
       "phone": "Telefon: ",
-      "strava": "Strava: "
+      "strava": "Strava: ",
+      "blog": "Blog"
     }
   },
 
@@ -71,6 +72,10 @@
       }
     },
     "done": {
+      "blog": {
+        "title": "Spletni dnevnik",
+        "description": "tvoja mami ga bere, daj ga še ti!"
+      },
       "mamut": {
         "title": "Apartma Mamut Kamnik",
         "description": "Spletna vizitka za apartma v Kamniku."
