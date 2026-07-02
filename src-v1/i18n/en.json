@@ -1,0 +1,22 @@
+{
+  "brand": {
+    "name": "Nejc Uršič"
+  },
+  "nav": {
+    "home": "Home",
+    "maps": "Maps",
+    "websites": "Websites",
+    "projects": "Projects",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
+  },
+  "homePage": {
+    "tag": "Interactive maps • GPX • Websites",
+    "title": "Digital presentations for outdoor stories.",
+    "subtitle": "Websites, maps and GPX displays for apartments, races, routes, blogs and personal pages.",
+    "CTA": {
+      "projects": "Maps and GPX",
+      "races": "Websites"
+    }
+  }
+}

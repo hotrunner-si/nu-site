@@ -5,8 +5,8 @@
 
   "nav": {
     "home": "Home",
-    "races": "Races",
-    "projects": "Projects",
+    "maps": "Maps",
+    "websites": "Websites",
     "lightMode": "Light Mode",
     "darkMode": "Dark Mode"
   },
@@ -17,8 +17,8 @@
     "title": "Inspired by the outdoors",
     "subtitle": "Trail running, GPX tracing, mapping technologies and modern frontend development.",
     "CTA": {
-      "races": "My Races",
-      "projects": "My Projects"
+      "work": "About",
+      "contact": "Contacts"
     },
     "cards": {
       "trailRunning": {
@@ -38,9 +38,9 @@
       "tag": "Contact",
       "title": "Get in Touch",
       "description": "Feel free to reach out!",
-      "email": "Email: ",
-      "phone": "Phone: ",
-      "strava": "Strava: ",
+      "email": "Email",
+      "phone": "Phone",
+      "strava": "Strava",
       "blog": "Blog"
     }
   },
@@ -92,7 +92,8 @@
       },
       "alpineAdventuresClub": {
 
-      }
+      },
+      "predstavitvenaStranZaOutdoorProjekte": {}
     },
     "alts": {
       "websites": "",

@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/HomeView.vue'
-import MapsView from '../views/MapsView.vue'
-import WebsitesView from '../views/WebsitesView.vue'
+import MapSiteView from '../views/MapSiteView.vue'
+import WebsiteView from '../views/WebsiteView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -10,16 +10,23 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'home',
       component: HomeView,
     },
     {
       path: '/maps',
-      component: MapsView,
+      name: 'maps',
+      component: MapSiteView,
     },
     {
       path: '/websites',
-      component: WebsitesView,
-    }
+      name: 'websites',
+      component: WebsiteView,
+    },
+    {
+      path: '/projects',
+      redirect: '/maps',
+    },
   ],
 })
 

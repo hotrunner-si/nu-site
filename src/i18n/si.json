@@ -5,8 +5,8 @@
 
   "nav": {
     "home": "Domov",
-    "races": "Tekme",
-    "projects": "Projekti",
+    "maps": "Zemljevidi",
+    "websites": "Spletne strani",
     "lightMode": "Svetli način",
     "darkMode": "Temni način"
   },
@@ -37,9 +37,9 @@
       "tag": "Kontakt",
       "title": "Stopite v stik",
       "description": "Vesel bom vašega sporočila!",
-      "email": "E-pošta: ",
-      "phone": "Telefon: ",
-      "strava": "Strava: ",
+      "email": "E-pošta",
+      "phone": "Telefon",
+      "strava": "Strava",
       "blog": "Blog"
     }
   },

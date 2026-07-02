@@ -12,16 +12,16 @@ const { t } = useI18n()
       </p>
 
       <div class="footer-tags">
-        <span class="footer-tag footer-tag-primary">
-          Trail
+        <span class="footer-tag footer-tag-tertiary">
+          Websites
         </span>
 
         <span class="footer-tag footer-tag-secondary">
           Maps
         </span>
 
-        <span class="footer-tag footer-tag-tertiary">
-          Development
+        <span class="footer-tag footer-tag-primary">
+          Trails
         </span>
       </div>
     </div>

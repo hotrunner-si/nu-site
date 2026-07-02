@@ -12,7 +12,7 @@ export const navBar = {
     },
     {
       nameKey: 'nav.websites',
-      link: '/websites', 
+      link: '/websites',
     },
   ],
 }
