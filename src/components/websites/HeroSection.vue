@@ -62,7 +62,6 @@ defineProps({
 
   background:
     radial-gradient(circle at 18% 28%, rgb(221 170 119 / 0.32), transparent 30rem),
-    radial-gradient(circle at 88% 68%, rgb(170 221 119 / 0.28), transparent 32rem),
     var(--color-background);
 
   border-bottom: 1px solid var(--color-border);

@@ -53,13 +53,7 @@
         </div>
 
         <!-- Dark Mode -->
-        <button
-          type="button"
-          class="theme-button"
-          @click="darkMode = !darkMode"
-        >
-          {{ darkMode ? t('nav.lightMode') : t('nav.darkMode') }}
-        </button>
+        <ThemeToggle />
       </div>
     </div>
   </header>
@@ -71,7 +65,8 @@ import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n' 
 import { useSettings } from '@/composables/useSettings' 
-import { navBar } from '@/data/content' 
+import { navBar } from '@/data/navbar' 
+import ThemeToggle from './ThemeToggle.vue'
 
 const { t } = useI18n() 
 const { language, darkMode } = useSettings() 
@@ -234,7 +229,6 @@ onBeforeUnmount(() => {
 /* Right-side controls */
 .navbar-controls {
   display: flex;
-  align-items: center;
   gap: 1rem;
 }
 
@@ -321,14 +315,16 @@ onBeforeUnmount(() => {
     align-items: center;
     margin-bottom: 1.2rem;
   }
-
+  
   .navbar-controls {
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 0;
-    margin-bottom: 2rem; /* remove extra push */
-    width: 100%;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    gap: 0.8rem;
+
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 2rem;
   }
 
   /* optional: visually group controls tighter */

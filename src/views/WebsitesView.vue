@@ -3,85 +3,32 @@ import HeroSection from '@/components/websites/HeroSection.vue'
 import Product from '@/components/websites/ProductSection.vue'
 import Project from '@/components/websites/ProjectSection.vue'
 
-const heroImages = [
-  {
-    src: '/images/websites/apartma-mamut.png',
-    alt: 'Spletna stran za nastanitev'
-  },
-  {
-    src: '/images/websites/gorski-kilometri.png',
-    alt: 'Predstavitvena spletna stran za projekt'
-  },
-  {
-    src: '/images/websites/tpok-site.png',
-    alt: 'Osebna spletna stran ali blog'
-  },
-  {
-    src: '/images/websites/vue-logo.png',
-    alt: 'Gorski blog'
-  },
-  {
-    src: '/images/websites/my-page.png',
-    alt: 'Interaktivni zemljevid'
-  }
-]
+import { heroImages, products, projects } from '@/data/websites'
+import { useI18n } from 'vue-i18n'
 
-const products = [
-  {
-    title: 'Spletna stran za vašo nastanitev',
-    subtitle: 'Za apartmaje, koče, sobe in turistične namestitve.',
-    description:
-      'Elegantna, hitra in pregledna spletna stran, kjer lahko gostom predstavite nastanitev, lokacijo, galerijo, cene, kontakte in povezave do rezervacij.',
-    image: '/images/websites/accommodation.jpg',
-    tag: 'Nastanitve',
-    accent: 'primary',
-    features: ['Galerija nastanitve', 'Kontakt in lokacija', 'Povezave do rezervacij']
-  },
-  {
-    title: 'Predstavitvena spletna stran za vaš projekt',
-    subtitle: 'Za manjša podjetja, dogodke, ideje ali storitve.',
-    description:
-      'Jasna predstavitev projekta, storitev ali dogodka z modernim dizajnom, dobro strukturo in vsebino, ki obiskovalcu hitro pove, kaj ponujate.',
-    image: '/images/websites/project.jpg',
-    tag: 'Projekti',
-    accent: 'secondary',
-    features: ['Predstavitev storitev', 'Sekcije po meri', 'Jasen poziv k dejanju']
-  },
-  {
-    title: 'Osebna spletna stran ali blog',
-    subtitle: 'Za ustvarjalce, športnike, študente in posameznike.',
-    description:
-      'Osebna spletna stran, kjer lahko predstavite sebe, svoje delo, dosežke, zapise, fotografije, tekme, potovanja ali druge vsebine.',
-    image: '/images/websites/blog.jpg',
-    tag: 'Osebno',
-    accent: 'tertiary',
-    features: ['Osebna predstavitev', 'Blog objave', 'Portfolio ali dosežki']
-  }
-]
+const { t } = useI18n()
 
-const projects = [
-  {
-    title: 'Gorski blog',
-    description:
-      'Blog z zapisi iz gorskih tekov, potovanj in treningov, zasnovan za hitro branje in močno vizualno predstavitev.',
-    image: '/images/websites/gorski-kilometri.png',
-    link: 'https://gorski-blog.netlify.app'
-  },
-  {
-    title: 'Osebna portfolio stran',
-    description:
-      'Spletna stran za predstavitev projektov, tekem, dosežkov in osebne zgodbe na enem mestu.',
-    image: '/images/websites/my-page.png',
-    link: 'https://apartma-mamut.si'
-  },
-  {
-    title: 'Interaktivni zemljevidi',
-    description:
-      'Digitalne vsebine za tekače, pohodnike in popotnike z zemljevidi, trasami in uporabnimi informacijami.',
-    image: '/images/websites/tpok-site.png',
-    link: 'https://pokal-kamnik.netlify.app'
-  }
-]
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+
+const productsGrid = ref(null)
+const activeSlide = ref(0)
+
+const onScroll = () => {
+  if (!productsGrid.value) return
+
+  const container = productsGrid.value
+  const cardWidth = container.children[0].offsetWidth + 16 // 16 = gap: 1rem
+
+  activeSlide.value = Math.round(container.scrollLeft / cardWidth)
+}
+
+onMounted(() => {
+  productsGrid.value?.addEventListener('scroll', onScroll)
+})
+
+onBeforeUnmount(() => {
+  productsGrid.value?.removeEventListener('scroll', onScroll)
+})
 </script>
 
 <template>
@@ -102,15 +49,31 @@ const projects = [
           Vsaka spletna stran je zasnovana tako, da je jasna, uporabna in prilagojena vsebini,
           ki jo želiš predstaviti.
         </p>
+
+        <p class="section-description">
+          S preprostim oblikovanjem in optimizirano uporabniško izkušnjo.
+        </p>
       </div>
 
-      <div class="products-grid">
-        <Product
-          v-for="product in products"
-          :key="product.title"
-          :product="product"
-        />
+      <div ref="productsGrid" class="products-grid">
+        <Product v-for="product in products" :key="product.title" :product="product" />
       </div>
+
+      <div class="slider-dots">
+        <button v-for="(_, index) in products" :key="index" class="dot" :class="{ active: activeSlide === index }" />
+      </div>
+
+      <div>
+        <p class="section-description">
+          * K posamezni ceni paketa je potrebno prišteti še stroške vzdrževanja, ki so odvisni od velikosti strani. Prvi
+          mesec je gratis, nato pa 15 € / mesec.
+        </p>
+        <p class="section-description">
+          Za več informacij o posameznem paketu ali za prilagojeno ponudbo me kontaktirajte.
+        </p>
+      </div>
+
+
     </section>
 
     <section id="projects" class="projects-section">
@@ -120,21 +83,16 @@ const projects = [
         </p>
 
         <h2 class="section-title">
-          Nekaj mojih projektov
+          Moji projekti
         </h2>
 
         <p class="section-description">
-          Tukaj lahko predstaviš spletne strani, bloge, zemljevide ali druge digitalne izdelke,
-          ki jih želiš pokazati potencialnim strankam.
+          Poglejte nekaj primerov spletnih strani, ki sem jih ustvaril za različne namene in projekte.
         </p>
       </div>
 
       <div class="projects-grid">
-        <Project
-          v-for="project in projects"
-          :key="project.title"
-          :project="project"
-        />
+        <Project v-for="project in projects" :key="project.title" :project="project" />
       </div>
     </section>
   </main>
@@ -187,23 +145,104 @@ const projects = [
   color: var(--color-text-secondary);
 }
 
-.products-grid,
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 3vw, 1.5rem);
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 3vw, 1.5rem);
 }
 
+.slider-dots {
+  display: none;
+}
+
 @media (max-width: 900px) {
-  .products-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
+  .slider-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border: none;
+    border-radius: 50%;
+    background: var(--color-border);
+    transition: all .2s ease;
+  }
+
+  .dot.active {
+    background: var(--color-primary);
+    transform: scale(1.25);
   }
 }
 
-@media (max-width: 420px) {
-  .section-title {
-    font-size: 1.8rem;
+@media (max-width: 900px) {
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .products-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+
+    padding-bottom: 0.5rem;
+    padding-inline: 1rem;
+    margin-inline: -1rem;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .products-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .products-grid>* {
+    flex: 0 0 45%;
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 440px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .products-grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+
+    padding-bottom: 0.5rem;
+    padding-inline: 1rem;
+    margin-inline: -1rem;
+
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+  }
+
+  .products-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .products-grid>* {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
   }
 }
 </style>

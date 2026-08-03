@@ -45,6 +45,10 @@ defineProps({
           {{ feature }}
         </li>
       </ul>
+
+      <p class="product-price">
+        {{ product.price }} *
+      </p>
     </div>
   </article>
 </template>
@@ -170,35 +174,11 @@ defineProps({
   background-color: var(--color-primary);
 }
 
-@media (max-width: 900px) {
-  .product-card {
-    display: grid;
-    grid-template-columns: minmax(13rem, 0.9fr) minmax(0, 1.1fr);
-  }
-
-  .product-image-wrap {
-    aspect-ratio: auto;
-    min-height: 100%;
-  }
-
-  .product-image {
-    height: 100%;
-  }
+.product-price {
+  margin: 2rem 0 0;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text-primary);
 }
 
-@media (max-width: 640px) {
-  .product-card {
-    display: block;
-  }
-
-  .product-image-wrap {
-    aspect-ratio: 16 / 10;
-  }
-}
-
-@media (max-width: 420px) {
-  .product-content {
-    padding: 1rem;
-  }
-}
 </style>

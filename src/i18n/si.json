@@ -12,7 +12,7 @@
   },
 
   "homePage": {
-    "tag": "Gorski tekač • Developer • Map Maker",
+    "tag": "Gorski tekač • Programer • Map Maker",
     "title": "Gore so lajf.",
     "subtitle": "Trail running, GPX tracing, mapping technologies and modern frontend development.",
     "CTA": {
@@ -25,12 +25,12 @@
         "description": "Trail tekme, gorske pustolovščine in vzdržljivostni izzivi."
       },
       "maths": {
-        "title": "Matematika in znanost",
-        "description": "Študij matematike in računalništva, učenje o tehnologijah GIS."
+        "title": "Zemljevidi in GPX",
+        "description": "Risanje zemljevidov, implementacija spletnih zemljevidov in vizualizacija GPX datotek."
       },
       "development": {
         "title": "Spletni projekti",
-        "description": "Vue aplikacije, matematična rešitve in implementacija zemljevidov."
+        "description": "Spletne strani za nastanitve, projekte ali osebne predstavitve."
       }
     },
     "contacts": {

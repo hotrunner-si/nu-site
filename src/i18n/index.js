@@ -4,7 +4,7 @@ import si from './si.json'
 
 export const i18n = createI18n({
   legacy: false,
-  locale: 'EN',
+  locale: 'SI',
   fallbackLocale: 'EN',
   messages: {
     EN: en,
