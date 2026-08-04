@@ -1,8 +1,12 @@
 <script setup>
-import { mapServices } from '@/data/mapsites'
+import { LMap, LTileLayer, LMarker, LPopup } from '@vue-leaflet/vue-leaflet'
+import 'leaflet/dist/leaflet.css'
+
+import { mapServices, markers, center, zoom } from '@/data/mapsites'
 import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
+
 </script>
 
 <template>
@@ -25,18 +29,45 @@ const { t } = useI18n()
     </section>
 
     <section class="services-section">
-      <article
-        v-for="service in mapServices"
-        :key="service.title"
-        class="service-section"
-        :class="{ 'service-section-reverse': service.reverse }"
-      >
+      <article v-for="(service) in mapServices" :key="service.title" class="service-section"
+        :class="{ 'service-section-reverse': service.reverse }">
         <div class="service-image-wrap">
-          <img
-            :src="service.image"
-            :alt="service.title"
-            class="service-image"
+          <LMap
+            v-if="service.type === 'leaflet'"
+            :zoom="zoom"
+            :center="center"
+            class="service-map"
+            :use-global-leaflet="false"
           >
+            <LTileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+
+            <LMarker
+              v-for="marker in markers"
+              :key="marker.id"
+              :lat-lng="marker.position"
+            >
+              <LPopup>
+                <strong>{{ marker.title }}</strong>
+                <br>
+                {{ marker.description }}
+              </LPopup>
+            </LMarker>
+          </LMap>
+
+            <video
+              v-else-if="service.type === 'video'"
+              class="service-video"
+              autoplay
+              muted
+              loop
+              playsinline
+            >
+              <source :src="service.video" type="video/mp4">
+            </video>
+
+          <img v-else :src="service.image" :alt="service.title" class="service-image">
         </div>
 
         <div class="service-content">
@@ -52,14 +83,9 @@ const { t } = useI18n()
             {{ service.description }}
           </p>
 
-          <a
-            :href="service.link"
-            class="service-link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Več +
-          </a>
+          <div class="service-link">
+            <RouterLink to="/#contacts">Več</RouterLink>
+          </div>
         </div>
       </article>
     </section>
@@ -101,12 +127,10 @@ const { t } = useI18n()
 
   content: '';
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       rgb(0 0 0 / 0.56) 0%,
       rgb(0 0 0 / 0.45) 48%,
-      rgb(0 0 0 / 0.18) 100%
-    );
+      rgb(0 0 0 / 0.18) 100%);
 }
 
 .maps-hero-inner {
@@ -114,9 +138,7 @@ const { t } = useI18n()
   max-width: 80rem;
   margin: 0 auto;
   padding:
-    clamp(5rem, 10vw, 7rem)
-    clamp(1rem, 4vw, 1.5rem)
-    clamp(4rem, 8vw, 5.5rem);
+    clamp(5rem, 10vw, 7rem) clamp(1rem, 4vw, 1.5rem) clamp(4rem, 8vw, 5.5rem);
 }
 
 .maps-tag {
@@ -165,8 +187,7 @@ const { t } = useI18n()
   max-width: 80rem;
   margin: 0 auto;
   padding:
-    clamp(3.5rem, 8vw, 6rem)
-    clamp(1rem, 4vw, 1.5rem);
+    clamp(3.5rem, 8vw, 6rem) clamp(1rem, 4vw, 1.5rem);
 }
 
 .service-section {
@@ -183,7 +204,7 @@ const { t } = useI18n()
   overflow: hidden;
 }
 
-.service-section + .service-section {
+.service-section+.service-section {
   margin-top: clamp(1.5rem, 4vw, 2.5rem);
 }
 
@@ -204,10 +225,24 @@ const { t } = useI18n()
 .service-image {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 11;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
 
   transition: transform 0.4s ease;
+}
+
+.service-map {
+  width: 100%;
+  aspect-ratio: 16 / 11;
+  border-radius: 1.25rem;
+}
+
+.service-video {
+  transition: transform 0.4s ease;
+}
+
+.service-section:hover .service-video {
+  transform: scale(1.04);
 }
 
 .service-section:hover .service-image {
