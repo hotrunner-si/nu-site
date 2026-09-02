@@ -1,22 +1,16 @@
-<template>
-  <button class="theme-toggle" type="button" @click="toggleTheme">
-    <component :is="isDark ? SunIcon : MoonIcon" class="theme-toggle_icon" />
-  </button>
-</template>
-
 <script setup>
 import { computed, onMounted, ref } from 'vue'
-import SunIcon from '@/assets/icons/sun.svg'
 import MoonIcon from '@/assets/icons/moon.svg'
+import SunIcon from '@/assets/icons/sun.svg'
 
-const STORAGE_KEY = 'nejc-ursic-theme'
+const STORAGE_KEY = 'nu-portfolio-theme'
 const theme = ref('light')
 const isDark = computed(() => theme.value === 'dark')
 
-function applyTheme(nextTheme) {
+function applyTheme(nextTheme, persist = true) {
   theme.value = nextTheme
   document.documentElement.dataset.theme = nextTheme
-  localStorage.setItem(STORAGE_KEY, nextTheme)
+  if (persist) localStorage.setItem(STORAGE_KEY, nextTheme)
 }
 
 function toggleTheme() {
@@ -25,37 +19,39 @@ function toggleTheme() {
 
 onMounted(() => {
   const savedTheme = localStorage.getItem(STORAGE_KEY)
-  applyTheme(savedTheme === 'dark' ? 'dark' : 'light')
+  const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  applyTheme(savedTheme || preferredTheme, Boolean(savedTheme))
 })
 </script>
 
+<template>
+  <button
+    class="theme-toggle"
+    type="button"
+    :aria-label="isDark ? 'Vključi svetlo temo' : 'Vključi temno temo'"
+    :title="isDark ? 'Svetla tema' : 'Temna tema'"
+    @click="toggleTheme"
+  >
+    <component :is="isDark ? SunIcon : MoonIcon" aria-hidden="true" />
+  </button>
+</template>
+
 <style scoped>
 .theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background: var(--color-surface);
-  color: var(--color-text);
-  padding: 0.55rem 0.8rem;
-  cursor: pointer;
-  transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease;
-}
-
-.theme-toggle:hover {
-  transform: translateY(-1px);
-  border-color: var(--color-primary-hover);
-}
-
-.theme-toggle_icon {
-  display: inline-grid;
+  display: grid;
+  flex: 0 0 auto;
   place-items: center;
-  width: 1.15rem;
-  height: 1.15rem;
-  color: var(--color-primary-hover);
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: transform 160ms ease, border-color 160ms ease, background-color 180ms ease;
 }
+
+.theme-toggle:hover { transform: translateY(-2px); border-color: var(--color-accent); }
+.theme-toggle:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.theme-toggle svg { width: 1.05rem; height: 1.05rem; color: var(--color-accent); }
 </style>

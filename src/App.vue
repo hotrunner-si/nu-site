@@ -1,14 +1,7 @@
 <script setup>
-import Navbar from './components/Navbar.vue'
-import Footer from './components/Footer.vue'
+import HomeView from '@/views/HomeView.vue'
 </script>
 
 <template>
-  <div class="min-h-screen">
-    <Navbar />
-
-    <RouterView />
-
-    <Footer />
-  </div>
+  <HomeView />
 </template>
